@@ -1,6 +1,6 @@
 // Array should be already sorted.
 
-binarySearch = (q, key, low = 0, high = q.length) => {
+const binarySearch = (q, key, low = 0, high = q.length) => {
     if (low > high) {
         return -1
     }
