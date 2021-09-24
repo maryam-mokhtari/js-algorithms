@@ -20,11 +20,25 @@ const partition = (q, low, high) => {
 }
 
 findKthSmallest = (q, k, low = 0, high = q.length - 1) => {
+    let i = k - 1
     let pivot = partition(q, low, high)
-    if (pivot > k) {
+    if (pivot > i) {
         return findKthSmallest(q, k, low, pivot - 1)
-    } else if (pivot < k) {
+    } else if (pivot < i) {
         return findKthSmallest(q, k, pivot + 1, high)
+    } else {
+        return q[pivot]
+    }
+}
+
+
+findKthLargest = (q, k, low = 0, high = q.length - 1) => {
+    let i = q.length - k
+    let pivot = partition(q, low, high)
+    if (pivot > i) {
+        return findKthLargest(q, k, low, pivot - 1)
+    } else if (pivot < i) {
+        return findKthLargest(q, k, pivot + 1, high)
     } else {
         return q[pivot]
     }
