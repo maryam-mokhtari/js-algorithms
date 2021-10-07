@@ -1,1 +1,1 @@
-const jsSort = q => q.sort((a, b) => a - b)
+const jsSort = (q) => q.sort((a, b) => a - b);

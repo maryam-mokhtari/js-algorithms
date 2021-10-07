@@ -20,67 +20,67 @@
 
 // It could be a *Graph* e.g. first sample or a *Tree* e.g. second sample
 DFS_main = (adjs, root) => {
-  let visited = []
+  let visited = [];
 
   const DFS_k = (r) => {
-    console.log(r)
+    console.log(r);
     adjs[r] &&
       adjs[r].forEach((i) => {
         if (!visited[i] && !found) {
-          visited[i] = true
-          DFS_k(i)
+          visited[i] = true;
+          DFS_k(i);
         }
-      })
-  }
+      });
+  };
 
-  DFS_k(root)
-}
+  DFS_k(root);
+};
 
 // When we are looking for a key:
 DFS_main = (adjs, root, key) => {
-  let visited = []
-  let found = false
+  let visited = [];
+  let found = false;
 
   const DFS_k = (r) => {
-    console.log(r)
+    console.log(r);
     if (r === key) {
-      console.log(":)")
-      found = true
-      return
+      console.log(":)");
+      found = true;
+      return;
     }
     adjs[r] &&
       adjs[r].forEach((i) => {
         if (!visited[i] && !found) {
-          visited[i] = true
-          DFS_k(i)
+          visited[i] = true;
+          DFS_k(i);
         }
-      })
-  }
+      });
+  };
 
-  DFS_k(root)
-}
+  DFS_k(root);
+};
 
 // Save the path of the found key instead of just logging:
 DFS_main = (adjs, root, key) => {
-  let visited = []
-  let path = []
-  let found = false
+  let visited = [];
+  let path = [];
+  let found = false;
 
   const DFS_k = (r) => {
-    path.push(r)
+    path.push(r);
     if (r === key) {
-      console.log(path)
-      found = true
-      return
+      console.log(path);
+      found = true;
+      return;
     }
     adjs[r] &&
       adjs[r].forEach((i) => {
         if (!visited[i] && !found) {
-          visited[i] = true
-          DFS_k(i)
+          visited[i] = true;
+          DFS_k(i);
         }
-      })
-  }
+      });
+  };
 
-  DFS_k(root)
-}
+  DFS_k(root);
+};
