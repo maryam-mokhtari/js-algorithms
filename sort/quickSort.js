@@ -5,7 +5,7 @@ const swap = (q, i, j) => {
 };
 
 const partition = (q, low, high) => {
-  let pivot = high;
+  const pivot = high;
   while (low < high) {
     while (q[low] <= q[pivot] && low < high) {
       low++;
@@ -21,7 +21,7 @@ const partition = (q, low, high) => {
 
 const quickSort = (q, low = 0, high = q.length - 1) => {
   if (low >= high) return;
-  let pivot = partition(q, low, high);
+  const pivot = partition(q, low, high);
   quickSort(q, low, pivot - 1);
   quickSort(q, pivot + 1, high);
 };

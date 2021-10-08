@@ -5,8 +5,8 @@ const swap = (q, i, j) => {
 };
 
 const heapify = (q, i, n) => {
-  let l = 2 * i;
-  let r = 2 * i + 1;
+  const l = 2 * i;
+  const r = 2 * i + 1;
   let largest = i;
 
   if (l < n && q[l] > q[largest]) {
@@ -23,7 +23,7 @@ const heapify = (q, i, n) => {
 };
 
 const heapSort = (q) => {
-  let n = q.length;
+  const n = q.length;
   for (let i = parseInt(n / 2); i >= 0; i--) {
     heapify(q, i, n);
   }

@@ -5,7 +5,7 @@ const swap = (q, i, j) => {
 };
 
 const merge = (q, low, mid, high) => {
-  let left = [],
+  const left = [],
     right = [],
     ln = mid - low + 1,
     rn = high - mid;
@@ -39,7 +39,7 @@ const mergeSort = (q, low = 0, high = q.length - 1) => {
   if (low >= high) {
     return;
   }
-  let mid = parseInt((low + high) / 2);
+  const mid = parseInt((low + high) / 2);
   mergeSort(q, low, mid);
   mergeSort(q, mid + 1, high);
   merge(q, low, mid, high);
