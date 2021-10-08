@@ -32,7 +32,7 @@ const countingSort = q => {
 // It is more advisable to use countingSort when the numbers interval is already known. For
 // example we know all the numbers are between 0 and 256. In this case it is better to pass 
 // the maximum amount of q[i] which is "k" as the second parameter. 
-// In this case the order of algorithm is o(n) which is wanting :)
+// In this case the order of algorithm is O(n) which is wanting :)
 const countingSort = (q, k = 256) => {
   const n = q.length
   const c = Array(k).fill(0)
