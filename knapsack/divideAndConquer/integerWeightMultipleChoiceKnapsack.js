@@ -1,4 +1,4 @@
-const choices = {}
+let choices = {}
 
 const knapsack = (items, w) => {
   if (w <= 0) return 0
@@ -22,7 +22,14 @@ const knapsack = (items, w) => {
 
 const print = (items, w) => {
   while (w) {
+    console.log(w,choices[w])
     w = w - items[choices[w]].weight
   }
 }
+
+const callKnapsack = (items, w) => {
+  knapsack(items, w)
+  print(items, w)
+}
+
 
