@@ -1,4 +1,5 @@
 const choices = {}
+
 const knapsack = (items, w) => {
   if (w <= 0) return 0
   const n = items.length
@@ -18,3 +19,10 @@ const knapsack = (items, w) => {
   choices = { ...choices, [w]: index }
   return max
 }
+
+const print = (items, w) => {
+  while (w) {
+    w = w - items[choices[w]].weight
+  }
+}
+
