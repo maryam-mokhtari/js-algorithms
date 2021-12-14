@@ -16,7 +16,6 @@ const callKnapsack = (items, w) => {
       }
     }
   }
-  console.log('i:',index)
   choices = { ...choices, [w]: index }
   return max
 }
