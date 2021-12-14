@@ -8,7 +8,7 @@ const callKnapsack = (items, w) => {
   for (let i = 0; i < n; i++) {
     if (w >= items[i].weight) {
       const v = items[i].value
-      const k = knapsack(items, w - items[i].weight)
+      const k = callKnapsack(items, w - items[i].weight)
       const value = v + k
       if (value > max) {
         max = value
