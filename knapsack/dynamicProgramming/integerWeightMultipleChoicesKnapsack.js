@@ -8,7 +8,7 @@ const knapsack = (items, w) => {
       let maxIndex = 0
       let max = 0
       for (let j = 0; j < n; j++) {
-        if (i >= items[j].weight) {
+        if (i >= items[j].weight && values[i - items[j].weight]) {
           const value = items[j].value + values[i - items[j].weight]
           if (value > max) {
             max = value
