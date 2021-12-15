@@ -29,10 +29,10 @@ const knapsack = (items, w) => {
     }
   }
 
-  const printK = () => {
+  const printK = (w) => {
     console.log(values[w])
     if (w <= 0) return ''
-    return choices[w] + ':' + printK(items, w - items[choices[w]].weight)
+    return choices[w] + ':' + printK(w - items[choices[w]].weight)
   }
 
   callKnapsack()
