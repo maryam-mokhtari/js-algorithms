@@ -1,8 +1,8 @@
 const knapsack = (items, w) => {
-  let choices = {}
+  let choices = []
   let values = []
 
-  const callKnapsack = (items, w) => {
+  const callKnapsack = () => {
     const n = items.length
     for (let i = 0; i <= w; i++) {
       let maxIndex = 0
@@ -21,7 +21,7 @@ const knapsack = (items, w) => {
     }
   }
 
-  const print = (items, w) => {
+  const print = () => {
     console.log('Max Value:', values[w])
     while (w) {
       console.log(`${choices[w]}: {w: ${items[choices[w]].weight}, v: ${items[choices[w]].value}}`)
@@ -29,13 +29,13 @@ const knapsack = (items, w) => {
     }
   }
 
-  const printK = (items, w) => {
+  const printK = () => {
     console.log(values[w])
     if (w <= 0) return ''
     return choices[w] + ':' + printK(items, w - items[choices[w]].weight)
   }
 
-  callKnapsack(items, w)
-  print(items, w)
-  //console.log(printK(items, w))
+  callKnapsack()
+  print()
+  //console.log(printK())
 }
