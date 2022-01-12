@@ -3,6 +3,33 @@
 // Given an array as an input: [3, -4, 5, -2, -1, 3, 2, -7, 6] 
 // The MSS Output: [5, -2, -1, 3, 2]
 
+// ** Divide and conquer **
+const maxCrossSubarray = (q, low, mid, high) => {
+  const n = q.length - 1
+  let leftSum = -Number.MAX_VALUE
+  let rightSum = -Number.MAX_VALUE
+  let sum = 0,
+    start = mid,
+    end = mid
+  for (let i = mid; i >= 0; i--) {
+    sum = sum + q[i]
+    if (sum > leftSum) {
+      leftSum = sum
+      start = i
+    }
+  }
+  sum = 0
+  for (let i = mid + 1; i < n; i++) {
+    sum = sum + q[i]
+    if (sum > rightSum) {
+      rightSum = sum
+      end = i
+    }
+  }
+  return [leftSum + rightSum, start, end]
+}
+
+// ** Dynamic Programming **
 const mss = q => {
   const n = q.length
   const s = []
