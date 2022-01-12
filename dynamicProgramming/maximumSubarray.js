@@ -2,8 +2,9 @@
 // Example:
 // Given an array as an input: [3, -4, 5, -2, -1, 3, 2, -7, 6] 
 // The MSS Output: [5, -2, -1, 3, 2]
+// We try to solve this problem first by using "Divide and Conquer" and then "Dynamic Programming", while DP is both faster and simpler to deploy.
 
-// ** Divide and conquer **
+// ** Divide and Conquer **
 const maxCrossSubarray = (q, low, mid, high) => {
   const n = q.length - 1
   let leftSum = -Number.MAX_VALUE
@@ -27,6 +28,29 @@ const maxCrossSubarray = (q, low, mid, high) => {
     }
   }
   return [leftSum + rightSum, start, end]
+}
+
+const maxSubarray = (q, low, high) => {
+  if (low === high) {
+    return [q[low], low, high]
+  } else {
+    const mid = Math.floor((low + high) / 2)
+    const [leftSum, leftLow, leftHigh] = maxSubarray(q, low, mid)
+    const [crossSum, crossLow, crossHigh] = maxCrossSubarray(q, low, mid, high)
+    const [rightSum, rightLow, rightHigh] = maxSubarray(q, mid + 1, high)
+    if (leftSum >= rightSum && leftSum >= crossSum) {
+      return [leftSum, leftLow, leftHigh]
+    } else if (rightSum >= leftSum && rightSum >= crossSum) {
+      return [rightSum, rightLow, rightHigh]
+    } else {
+      return [crossSum, crossLow, crossHigh]
+    }
+  }
+}
+
+const printSubarray = q => {
+  const [sum, start, end] = maxSubarray(q, 0, q.length-1)
+  return q.slice(start, end + 1)
 }
 
 // ** Dynamic Programming **
