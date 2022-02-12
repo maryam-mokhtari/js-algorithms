@@ -8,7 +8,7 @@ const fib = n => {
   return fib(n - 1) + fib(n - 2)
 }
 
-// Another trial is to memoize the results in every step and use it in next function calls reducing runtime order from an exponential order to n^2
+// Another trial is to memoize the results in every step and use it in next function calls reducing runtime order from an exponential order to a polynomial one; n^2
 const memoFib = n => {
   const f = []
   const fib = n => {
